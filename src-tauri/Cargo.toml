@@ -1,0 +1,15 @@
+[package]
+name = "notex"
+version = "0.1.0"
+description = "NoteX - A simple note-taking app"
+edition = "2021"
+
+[lib]
+name = "notex_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
