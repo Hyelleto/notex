@@ -8,8 +8,20 @@
   </head>
   <body>
     <div class="app">
-      <h1>NoteX</h1>
-      <p>Hello World</p>
+      <header class="toolbar">
+        <button id="btn-new" title="新建笔记">+ 新建</button>
+        <span class="title">NoteX</span>
+      </header>
+      <main class="content">
+        <aside class="sidebar" id="note-list"></aside>
+        <section class="editor-area">
+          <textarea id="editor" placeholder="开始写下你的笔记..."></textarea>
+        </section>
+      </main>
+      <footer class="statusbar">
+        <span id="char-count">0 字</span>
+        <span id="line-count">0 行</span>
+      </footer>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
