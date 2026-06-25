@@ -13,5 +13,7 @@
     "typescript": "^5",
     "vite": "^6"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@tauri-apps/api": "^2"
+  }
 }

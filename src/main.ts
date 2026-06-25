@@ -1,4 +1,5 @@
 import type { Note } from "./types";
+import { invoke } from "@tauri-apps/api/core";
 
 // DOM 元素引用
 const editor = document.getElementById("editor") as HTMLTextAreaElement;
@@ -34,10 +35,9 @@ function renderNoteList() {
 }
 
 // 切换当前笔记
-function switchNote(id: number) {
-  const note = notes.find((n) => n.id === id);
-  if (!note) return;
-  activeNoteId = id;
+async function switchNote(id: number) {
+  const note = await invoke<Note>("load_note", { id });
+  activeNoteId = note.id;
   editor.value = note.content;
   updateStats();
   renderNoteList();
@@ -52,12 +52,17 @@ function createNote() {
 }
 
 // 编辑区输入事件：同步内容到状态
-editor.addEventListener("input", () => {
+editor.addEventListener("input", async () => {
   const note = notes.find((n) => n.id === activeNoteId);
   if (note) {
     note.content = editor.value;
     const firstLine = editor.value.split("\n")[0].replace(/^#+\s*/, "").trim();
     note.title = firstLine || "新笔记";
+    await invoke("save_note", {
+      id: note.id,
+      title: note.title,
+      content: note.content,
+    });
     renderNoteList();
   }
   updateStats();
