@@ -15,5 +15,8 @@
     "typescript": "^5",
     "vite": "^6",
     "vitepress": "^1.6.4"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2"
   }
 }
