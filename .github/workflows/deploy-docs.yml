@@ -3,7 +3,7 @@ name: Deploy Docs
 on:
   push:
     branches: [master]
-    paths: ["docs/**", "tutorials/**"]
+    paths: ["docs/**"]
 
 permissions:
   contents: read
@@ -23,8 +23,8 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - run: npm install
-      - run: npx vitepress build docs
+      - run: npm ci
+      - run: npm run docs:build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist

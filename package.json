@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^2",
     "typescript": "^5",
-    "vite": "^6"
-  },
-  "dependencies": {}
+    "vite": "^6",
+    "vitepress": "^1.6.4"
+  }
 }
