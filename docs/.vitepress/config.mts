@@ -31,6 +31,12 @@ export default defineConfig({
             { text: "V1.3 多语言", link: "/notex/V1.3" },
           ],
         },
+        {
+          text: "附录",
+          items: [
+            { text: "GitHub Pages 配置", link: "/github-pages" },
+          ],
+        },
       ],
     },
   },
